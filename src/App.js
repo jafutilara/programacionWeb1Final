@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 // import './App.css';
-import { useState, useEffect } from 'react';
+import { usRef, useState, useEffect, useRef } from 'react';
 import { baseDeDatos } from "./configFireBase";
 import Header from "./components/a-header";
 import Registro from "./components/a-registro";
@@ -16,6 +16,8 @@ function App() {
   const [usuarioActivo, setUsuarioActivo] = useState(null);
   const [publicaciones, setPublicaciones] = useState([]);
 
+  const bodyRef = useRef(null);
+
   function getPublicaciones() {
     const listado = [];
     baseDeDatos.collection("publicaciones")
@@ -27,7 +29,14 @@ function App() {
       })
   }
 
-  useEffect(getPublicaciones, []);
+  function observadorDeModal(state) {
+    if (state) {
+      document.body.style.overflow = "hidden"
+      // console.log("se abrió el modal registro");
+    } else {
+      document.body.style.overflow = "auto"
+    }
+  }
 
   function guardarUsuario(usuario) {
     localStorage.setItem("usuario", usuario);
@@ -38,31 +47,40 @@ function App() {
     // console.log(usuario);
     setUsuarioActivo(usuario);
   }
-  useEffect(recordarUsuario, [])
 
   function olvidarUsuario() {
     localStorage.setItem("usuario", "")
   }
-  // useEffect(() => {
-  //   localStorage.getItem("usuario")
 
-  // }, [])
+  useEffect(() => {
+    observadorDeModal(modalRegistro)
+  }, [modalRegistro]);
 
-  // useEffect(() => {
-  //   localStorage.setItem({ "usuario": { usuarioActivo } })
+  useEffect(() => {
+    observadorDeModal(modalCrearPublicacion)
+  }, [modalCrearPublicacion]);
 
-  // }, [usuarioActivo])
+  useEffect(() => {
+    observadorDeModal(modalInicioDeSesion)
+  }, [modalInicioDeSesion]);
+
+  useEffect(getPublicaciones, []);
+
+  useEffect(recordarUsuario, [])
+
 
   return (
-    <div className="S-globalContainer">
+    <div ref={bodyRef}>
       <Header setModalRegistro={() => { setModalRegistro(true) }} setModalInicioDeSesion={() => { setModalInicioDeSesion(true) }} usuario_activo={usuarioActivo} cerrarSesion={() => { olvidarUsuario(); setUsuarioActivo(null); setModalCrearPublicacion(null) }}></Header>
-
+      {/* modal */}
       {modalRegistro && <Registro modalRegistro={modalRegistro} quitarModal={() => { setModalRegistro(false) }}></Registro>}
 
+      {/* modal */}
       {modalInicioDeSesion && <InicioDeSesion modalInicioDeSesion={modalInicioDeSesion} quitarModal={() => { setModalInicioDeSesion(false) }} activarUsuario={(usuario) => { guardarUsuario(usuario); setUsuarioActivo(usuario) }}></InicioDeSesion>}
 
       <MainContainer usuario_activo={usuarioActivo} abrirModalPublicacion={() => { setModalCrearPublicacion(true) }} publicaciones={publicaciones}></MainContainer>
 
+      {/* modal */}
       {modalCrearPublicacion && <CrearPublicacion modalCrearPublicacion={modalCrearPublicacion} quitarModal={() => { setModalCrearPublicacion(false) }} usuario_activo={usuarioActivo} actualizarListado={getPublicaciones}></CrearPublicacion>}
 
     </div>

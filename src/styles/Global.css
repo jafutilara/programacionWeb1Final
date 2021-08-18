@@ -90,7 +90,7 @@ h6 {
     border: none;
     background-color: var(--neutral_6);
     color: var(--neutral_1);
-    padding: 1rem;
+    padding: 1em;
 }
 
 .button__circular {
@@ -141,12 +141,34 @@ h6 {
     right: 2rem;
 }
 
+.GS-modal--background {
+    background-color: rgba(13, 13, 13, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.GS-modal {
+    justify-content: center;
+    align-items: center;
+    background-color: var(--neutral_1);
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    width: 80vw;
+}
+
 .S-header {
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 2rem 2rem;
     background-color: var(--primario);
     color: var(--neutral_6);
-    justify-content: flex-end;
-    padding: 2rem 2rem;
-    gap: 16px;
 }
 
 .S-mainContainer {
@@ -164,30 +186,4 @@ h6 {
 .S-publicacion {
     padding: 1rem;
     gap: 1rem;
-}
-
-/* .S-publicacion--header {
-    gap: 0.5rem;
-} */
-
-.GS-modal--background {
-    background-color: rgba(13, 13, 13, 0.4);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-
-.GS-modal {
-    justify-content: center;
-    background-color: var(--neutral_1);
-    position: absolute;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 80vh;
-    width: 80vw;
-    padding: 2rem;
 }

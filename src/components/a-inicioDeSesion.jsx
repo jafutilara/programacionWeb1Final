@@ -32,6 +32,7 @@ function InicioDeSesion({ modalInicioDeSesion, quitarModal, activarUsuario }) {
                     activarUsuario(cuenta.usuario);
                     window.alert(`Se ha iniciado sesión con ${cuenta.usuario}.`)
                     quitarModal();
+                    break;
                 } else if (origen.indexOf(datos) === origen.length - 1 && cuenta.usuario !== datos.usuario && cuenta.contrasena !== datos.contrasena) {
                     window.alert("Usuario y/o contraseña no coinciden.")
                 }

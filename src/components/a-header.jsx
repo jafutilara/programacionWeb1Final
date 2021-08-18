@@ -1,6 +1,5 @@
 import React from 'react';
 import registro from './a-registro';
-// import styles from "../styles/a-header.css";
 
 function header({ usuario_activo, setModalRegistro, setModalInicioDeSesion, cerrarSesion }) {
     if (usuario_activo) {
