@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+:root {
+    --neutral_1: #F2F2F2;
+    --neutral_2: #BFBFBF;
+    --neutral_3: #808080;
+    --neutral_4: #404040;
+    --neutral_5: #262626;
+    --neutral_6: #0D0D0D;
+    --primario: #C6D6C2;
+    --g_BorderRadius: 8px;
+    --circle: 50%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: var(--neutral_6);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, .parrafo-1, .parrafo-2, .button-text, .subtexto {
+    margin: 0px;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 5.6114rem;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 4.2087rem;
+}
+
+h3 {
+    font-size: 3.1573rem;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 2.368rem;
+}
+
+h5 {
+    font-size: 1.776rem;
+}
+
+h6 {
+    font-weight: 500;
+    font-size: 1.333rem;
+}
+
+.parrafo-1 {
+    font-size: 1rem;
+}
+
+.parrafo-2 {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.button-text {
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.subtexto {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.icon {
+    height: 2rem;
+    width: 2rem;
+}
+
+.fila {
+    display: flex;
+}
+
+.columna {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    border-radius: var(--g_BorderRadius);
+    border: none;
+    background-color: var(--neutral_6);
+    color: var(--neutral_1);
+    padding: 1rem;
+}
+
+.button__circular {
+    border: none;
+    height: 4.5rem;
+    width: 4.5rem;
+    background-color: var(--primario);
+    border-radius: var(--circle);
+}
+
+.input {
+    background-color: var(--neutral_1);
+    border-radius: var(--g_BorderRadius);
+    border: 1px solid var(--neutral_6);
+    padding: 1rem 0.5rem;
+    min-width: 288px;
+    width: 50vw;
+}
+
+.input::placeholder {
+    color: var(--neutral_3);
+}
+
+.divisor {
+    height: 1px;
+    width: 100%;
+    background-color: var(--neutral_6);
+}
+
+/* ******************************************************************************************************* */
+
+/* Estructura */
+
+/* ******************************************************************************************************* */
+
+.GS-form {
+    margin: 4rem 0 2rem 0;
+    gap: 1rem;
+}
+
+.GS-actions {
+    gap: 2rem;
+}
+
+.GS-exitButton {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.S-header {
+    background-color: var(--primario);
+    color: var(--neutral_6);
+    justify-content: flex-end;
+    padding: 2rem 2rem;
+    gap: 16px;
+}
+
+.S-mainContainer {
+    padding: 4rem 2rem;
+    gap: 1rem;
+}
+
+.S-mainContainer--button {
+    /* Probablemente deba ponerle un z-index */
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+.S-publicacion {
+    padding: 1rem;
+    gap: 1rem;
+}
+
+/* .S-publicacion--header {
+    gap: 0.5rem;
+} */
+
+.GS-modal--background {
+    background-color: rgba(13, 13, 13, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.GS-modal {
+    justify-content: center;
+    background-color: var(--neutral_1);
+    position: absolute;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    width: 80vw;
+    padding: 2rem;
+}
